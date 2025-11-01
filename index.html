@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head> <link rel="manifest" href="manifest.json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAXEXTERNAL FREE</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>PAXEXTERNAL FREE</header>
+
+<!-- FOTO E NOME -->
+<section class="perfil">
+  <img src="images/avatar.png" alt="Avatar PAXEXTERNAL">
+  <h2>PAXEXTERNAL</h2>
+  <p>Versão Free</p>
+</section>
+
+<div id="notice"></div>
+<div class="menu" id="menu"></div>
+
+<!-- Alertas -->
+<div id="overlay"></div>
+<div id="customAlert">
+  <p id="alertText"></p>
+  <button onclick="closeAlert()">OK</button>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // Protege acesso direto sem login
+  if(localStorage.getItem('loggedIn')!=='true'){
+      window.location.href='login.html';
+  }
+</script>
+
+</body>
+</html>

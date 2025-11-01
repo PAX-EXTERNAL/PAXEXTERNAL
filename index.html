@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>PAXEXTERNAL MAIN</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAXEXTERNAL FREE</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>PAXEXTERNAL - Principal</header>
 
-  <section class="perfil">
-    <img src="images/avatar.png" alt="Avatar PAXEXTERNAL">
-    <h2>PAXEXTERNAL</h2>
-    <p>Versão Free</p>
-  </section>
+<header>PAXEXTERNAL FREE</header>
 
-  <div class="menu">
-    <button onclick="showAlert('Função 1 em breve')">Função 1</button>
-    <button onclick="showAlert('Função 2 em breve')">Função 2</button>
-    <button onclick="logout()">Sair</button>
-  </div>
+<section class="perfil">
+  <img src="images/avatar.png" alt="Avatar PAXEXTERNAL">
+  <h2>PAXEXTERNAL</h2>
+  <p>Versão Free</p>
+</section>
 
-  <div id="overlay" class="overlay"></div>
-  <div id="customAlert" class="alert-box">
-    <p id="alertText"></p>
-    <button onclick="closeAlert()">OK</button>
-  </div>
+<div id="notice"></div>
+<div class="menu" id="menu"></div>
 
-  <script src="js/main.js"></script>
-  <script>
-    // bloqueia acesso direto
-    if (localStorage.getItem('loggedIn') !== 'true') {
-      window.location.href = 'login.html';
-    }
-  </script>
+<script src="js/main.js"></script>
+<script>
+  // bloqueia acesso direto sem login
+  if (localStorage.getItem('loggedIn') !== 'true') {
+    window.location.href = 'login.html';
+  }
+</script>
+
 </body>
 </html>

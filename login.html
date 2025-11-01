@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Login - PAXEXTERNAL</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="login-container">
     <img src="images/avatar.png" alt="Avatar" class="login-avatar">
-    <input type="password" id="password" placeholder="Digite a senha">
-    <button onclick="login()">Entrar</button>
+    <input type="password" id="password" placeholder="Digite a senha" autofocus>
+    <button id="enterBtn">Entrar</button>
   </div>
 
   <div id="overlay" class="overlay"></div>
@@ -20,5 +20,12 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    // Pressionar Enter também entra
+    document.getElementById('password').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('enterBtn').click();
+    });
+    document.getElementById('enterBtn').addEventListener('click', login);
+  </script>
 </body>
 </html>

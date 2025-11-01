@@ -130,5 +130,14 @@ function colorMenu() {
     showMenu([
         { name: "Azul", action: () => { MAIN_COLOR="#00BFFF"; mainMenu(); } },
         { name: "Roxo", action: () => { MAIN_COLOR="#9D4EDD"; mainMenu(); } },
-        { name: "Verde", action: () => { MAIN_COLOR="#
-            
+        { name: "Verde", action: () => { MAIN_COLOR="#39FF14"; mainMenu(); } },
+        { name: "Vermelho", action: () => { MAIN_COLOR="#FF3333"; mainMenu(); } },
+        { name: "Amarelo", action: () => { MAIN_COLOR="#FFD700"; mainMenu(); } },
+        { name: "Custom RGB", action: () => {
+            let r = prompt("R (0-255)"), g = prompt("G (0-255)"), b = prompt("B (0-255)");
+            if (!isNaN(r) && !isNaN(g) && !isNaN(b)) MAIN_COLOR = `rgb(${r},${g},${b})`;
+            mainMenu();
+        }},
+        { name: "Voltar", action: mainMenu }
+    ]);
+}

@@ -4,28 +4,72 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Login - PAXEXTERNAL</title>
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      text-align: center;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #000;
+      width: 90%;
+      max-width: 320px;
+    }
+    .login-avatar {
+      width: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      text-align: center;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #00bcd4;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #0097a7;
+    }
+  </style>
 </head>
 <body>
   <div class="login-container">
     <img src="images/avatar.png" alt="Avatar" class="login-avatar">
-    <input type="password" id="password" placeholder="Digite a senha" autofocus>
-    <button id="enterBtn">Entrar</button>
+    <input type="password" id="password" placeholder="Digite a senha">
+    <button onclick="login()">Entrar</button>
   </div>
 
-  <div id="overlay" class="overlay"></div>
-  <div id="customAlert" class="alert-box">
-    <p id="alertText"></p>
-    <button onclick="closeAlert()">OK</button>
-  </div>
-
-  <script src="js/main.js"></script>
   <script>
-    // Pressionar Enter também entra
-    document.getElementById('password').addEventListener('keydown', e => {
-      if (e.key === 'Enter') document.getElementById('enterBtn').click();
-    });
-    document.getElementById('enterBtn').addEventListener('click', login);
+    function login() {
+      const senha = document.getElementById('password').value.trim();
+      if (senha === 'PAXEXTERNAL') {
+        localStorage.setItem('loggedIn', 'true');
+        window.location.href = 'index.html'; // vai para a tela principal
+      } else {
+        alert('Senha incorreta!');
+      }
+    }
   </script>
 </body>
 </html>

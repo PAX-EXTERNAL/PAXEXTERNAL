@@ -1,103 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>PAXEXTERNAL - Menu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>PAXEXTERNAL - Menu</title>
 
-<!-- Configurações para tela cheia no iPhone -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="apple-touch-icon" href="assets/icon.png"> <!-- Coloque o caminho para o seu ícone -->
-<link rel="manifest" href="manifest.json">
+    <!-- Definir o ícone do Web Clip -->
+    <link rel="apple-touch-icon" href="https://pax-external.github.io/PAXEXTERNAL/path/to/your-icon.png"> <!-- Substitua com o caminho do seu ícone -->
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background-color: #0d0d0d;
-  color: white;
-  margin: 0;
-  padding: 20px;
-}
-#notice {
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-#menu {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.menu-btn {
-  padding: 12px;
-  border: 2px solid #00BFFF;
-  border-radius: 10px;
-  background: #222;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.3s;
-}
-.menu-btn:hover {
-  background: #333;
-}
+    <!-- Configurações para o Web App -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- Pode ser "default", "black", ou "black-translucent" -->
+    <meta name="apple-mobile-web-app-title" content="PAXEXTERNAL">
+    
+    <!-- Para permitir que o app use o modo fullscreen -->
+    <meta name="mobile-web-app-capable" content="yes">
 
-/* ALERT CUSTOM */
-#overlay {
-  display: none;
-  position: fixed;
-  top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.7);
-  z-index: 99;
-}
-#customAlert {
-  display: none;
-  position: fixed;
-  top:50%; left:50%;
-  transform: translate(-50%, -50%);
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 12px;
-  z-index: 100;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-#customAlert button {
-  margin-top: 10px;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 8px;
-  background: #00bcd4;
-  color: white;
-  cursor: pointer;
-}
-</style>
+    <!-- Outros meta dados (se necessário) -->
+    <meta name="description" content="Página de menu do PAXEXTERNAL">
+    <meta name="author" content="PAXEXTERNAL">
+
+    <!-- Estilos para a página -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        #menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .menu-btn {
+            padding: 12px;
+            border: 2px solid #00BFFF;
+            border-radius: 10px;
+            background: #222;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .menu-btn:hover {
+            background: #333;
+        }
+
+        /* ALERT CUSTOM */
+        #overlay {
+            display: none;
+            position: fixed;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 99;
+        }
+        #customAlert {
+            display: none;
+            position: fixed;
+            top:50%; left:50%;
+            transform: translate(-50%, -50%);
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            z-index: 100;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        #customAlert button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            background: #00bcd4;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 <body>
 
-<div id="notice"></div>
-<div id="menu"></div>
+    <div id="menu">
+        <!-- Seus botões de menu aqui -->
+        <button class="menu-btn">Opção 1</button>
+        <button class="menu-btn">Opção 2</button>
+        <!-- Outros botões -->
+    </div>
 
-<div id="overlay"></div>
-<div id="customAlert">
-  <span id="alertText"></span>
-  <button onclick="closeAlert()">Fechar</button>
-</div>
+    <div id="overlay"></div>
+    <div id="customAlert">
+        <span id="alertText"></span>
+        <button onclick="closeAlert()">Fechar</button>
+    </div>
 
-<script src="js/main.js"></script>
-<script>
-if (!localStorage.getItem('loggedIn')) {
-  window.location.href = 'login.html';
-} else {
-  document.addEventListener("DOMContentLoaded", () => {
-    mainMenu();
-  });
-}
-</script>
-
-<!-- Adicionando um iframe para exibir o Google em tela cheia -->
-<iframe id="googleFrame" src="https://www.google.com" style="width: 100%; height: 100vh; border: none;"></iframe>
-
+    <script src="js/main.js"></script>
+    <script>
+        if (!localStorage.getItem('loggedIn')) {
+            window.location.href = 'login.html';
+        } else {
+            document.addEventListener("DOMContentLoaded", () => {
+                mainMenu();
+            });
+        }
+    </script>
 </body>
 </html>

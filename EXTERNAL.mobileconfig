@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
     <dict>
+        <!-- Definindo as configurações do WebClip -->
         <key>PayloadContent</key>
         <array>
             <dict>
                 <key>PayloadType</key>
                 <string>com.apple.webClip.managed</string>
                 <key>PayloadDisplayName</key>
-                <string>PAXEXTERNAL WebClip</string> <!-- Nome do WebClip -->
+                <string>PAXEXTERNAL</string> <!-- Nome que aparecerá na tela inicial -->
                 <key>PayloadIdentifier</key>
-                <string>com.paxexternal.webclip</string> <!-- Identificador único -->
+                <string>com.paxexternal.webclip</string> <!-- Identificador único do WebClip -->
                 <key>PayloadVersion</key>
                 <integer>1</integer>
                 <key>URL</key>
                 <string>https://pax-external.github.io/PAXEXTERNAL/login.html</string> <!-- URL do WebClip -->
                 <key>Label</key>
-                <string>PAXEXTERNAL</string> <!-- Nome que aparecerá no ícone do WebClip -->
+                <string>PAXEXTERNAL</string> <!-- Nome do WebClip -->
                 <key>Icon</key>
                 <string>https://pax-external.github.io/PAXEXTERNAL/images/avatar.png</string> <!-- URL do ícone -->
                 <key>FullScreen</key>
-                <true/> <!-- Abre o WebClip em tela cheia -->
+                <true/> <!-- A página será aberta em tela cheia (sem a barra de navegação) -->
             </dict>
         </array>
+        
+        <!-- Informações gerais sobre o perfil -->
         <key>PayloadDisplayName</key>
-        <string>PAXEXTERNAL WebClip</string> <!-- Nome do perfil -->
+        <string>PAXEXTERNAL WebClip</string>
         <key>PayloadIdentifier</key>
-        <string>com.paxexternal.webclip</string> <!-- Identificador único -->
+        <string>com.paxexternal.webclip</string>
         <key>PayloadType</key>
         <string>com.apple.webClip.managed</string>
         <key>PayloadVersion</key>

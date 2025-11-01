@@ -79,5 +79,13 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    // Impede acessar index.html sem login
+    if (!localStorage.getItem('loggedIn')) {
+      window.location.href = 'login.html';
+    } else {
+      mainMenu(); // chama o menu principal assim que carregar
+    }
+  </script>
 </body>
 </html>

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PAXEXTERNAL - Menu</title>
+<link rel="manifest" href="manifest.json">
 <style>
 body {
   font-family: Arial, sans-serif;
@@ -78,93 +79,16 @@ body {
   <button onclick="closeAlert()">Fechar</button>
 </div>
 
+<script src="js/main.js"></script>
 <script>
-// ==================== CONFIG ====================
-const APP_NAME = "PAXEXTERNAL FREE";
-const AUTHOR = "Bernardo";
-let MAIN_COLOR = "#00BFFF";
-
-// ==================== ALERTS ====================
-function showAlert(msg) {
-  document.getElementById("alertText").innerText = msg;
-  document.getElementById("overlay").style.display = "block";
-  document.getElementById("customAlert").style.display = "flex";
-}
-function closeAlert() {
-  document.getElementById("overlay").style.display = "none";
-  document.getElementById("customAlert").style.display = "none";
-}
-
-// ==================== MENU ====================
-function showMenu(options) {
-  const menu = document.getElementById("menu");
-  menu.innerHTML = "";
-  options.forEach(opt => {
-    const btn = document.createElement("button");
-    btn.className = "menu-btn";
-    btn.style.borderColor = MAIN_COLOR;
-    btn.style.color = "#fff";
-    btn.style.background = "#222";
-    btn.innerText = opt.name;
-    btn.addEventListener("click", opt.action);
-    menu.appendChild(btn);
+// Proteção de login
+if (!localStorage.getItem('loggedIn')) {
+  window.location.href = 'login.html';
+} else {
+  document.addEventListener("DOMContentLoaded", () => {
+    mainMenu();
   });
 }
-
-// ==================== SUBMENUS ====================
-function mainMenu() {
-  showMenu([
-    { name: "🎯 Auxílio de Mira", action: aimMenu },
-    { name: "🛡️ Estabilidade", action: stabilityMenu },
-    { name: "💎 Visual & Efeitos", action: visualsMenu },
-    { name: "⚙️ Sistema", action: systemMenu },
-    { name: "🎨 Personalizar Cores", action: colorMenu },
-    { name: "🚪 Logout", action: () => showAlert("Logout não implementado neste teste.") }
-  ]);
-}
-
-function aimMenu() {
-  showMenu([
-    { name: "Ativar Mira Assistida", action: () => showAlert("Mira assistida ativada!") },
-    { name: "Ajustar Recoil", action: () => showAlert("Recoil ajustado!") },
-    { name: "Voltar", action: mainMenu }
-  ]);
-}
-
-function stabilityMenu() {
-  showMenu([
-    { name: "Ativar AntiCrash", action: () => showAlert("AntiCrash ativado!") },
-    { name: "Voltar", action: mainMenu }
-  ]);
-}
-
-function visualsMenu() {
-  showMenu([
-    { name: "Modo Noturno", action: () => showAlert("Modo Noturno ativado!") },
-    { name: "Voltar", action: mainMenu }
-  ]);
-}
-
-function systemMenu() {
-  showMenu([
-    { name: "Informações", action: () => showAlert(`${APP_NAME}\nAutor: ${AUTHOR}`) },
-    { name: "Voltar", action: mainMenu }
-  ]);
-}
-
-function colorMenu() {
-  showMenu([
-    { name: "Azul", action: () => { MAIN_COLOR="#00BFFF"; mainMenu(); } },
-    { name: "Vermelho", action: () => { MAIN_COLOR="#FF3333"; mainMenu(); } },
-    { name: "Voltar", action: mainMenu }
-  ]);
-}
-
-// ==================== START ====================
-// Espera o DOM carregar antes de criar menu
-document.addEventListener("DOMContentLoaded", () => {
-  mainMenu();
-});
 </script>
 </body>
 </html>

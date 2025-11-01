@@ -1,91 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>PAXEXTERNAL - Menu</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0d0d0d;
-      color: white;
-      margin: 0;
-      padding: 20px;
-    }
-    #notice {
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-    #menu {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .menu-btn {
-      padding: 12px;
-      border: 2px solid #00BFFF;
-      border-radius: 10px;
-      background: #222;
-      color: #fff;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-    .menu-btn:hover {
-      background: #333;
-    }
-    /* ALERT CUSTOM */
-    #overlay {
-      display: none;
-      position: fixed;
-      top:0; left:0; width:100%; height:100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 99;
-    }
-    #customAlert {
-      display: none;
-      position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      background: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
-      z-index: 100;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    #customAlert button {
-      margin-top: 10px;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 8px;
-      background: #00bcd4;
-      color: white;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PAXEXTERNAL - Menu</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0d0d0d;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+#notice {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+#menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.menu-btn {
+  padding: 12px;
+  border: 2px solid #00BFFF;
+  border-radius: 10px;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.menu-btn:hover {
+  background: #333;
+}
+
+/* ALERT CUSTOM */
+#overlay {
+  display: none;
+  position: fixed;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 99;
+}
+#customAlert {
+  display: none;
+  position: fixed;
+  top:50%; left:50%;
+  transform: translate(-50%, -50%);
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  z-index: 100;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#customAlert button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #00bcd4;
+  color: white;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
 
-  <div id="notice"></div>
-  <div id="menu"></div>
+<div id="notice"></div>
+<div id="menu"></div>
 
-  <!-- ALERT CUSTOM -->
-  <div id="overlay"></div>
-  <div id="customAlert">
-    <span id="alertText"></span>
-    <button onclick="closeAlert()">Fechar</button>
-  </div>
+<div id="overlay"></div>
+<div id="customAlert">
+  <span id="alertText"></span>
+  <button onclick="closeAlert()">Fechar</button>
+</div>
 
-  <script src="js/main.js"></script>
-  <script>
-    // Impede acessar index.html sem login
-    if (!localStorage.getItem('loggedIn')) {
-      window.location.href = 'login.html';
-    } else {
-      mainMenu(); // chama o menu principal assim que carregar
-    }
-  </script>
+<script>
+// ==================== CONFIG ====================
+const APP_NAME = "PAXEXTERNAL FREE";
+const AUTHOR = "Bernardo";
+const EXPIRATION_DAYS = 3;
+let MAIN_COLOR = "#00BFFF";
+
+// ==================== ALERTS ====================
+function showAlert(msg) {
+  document.getElementById("alertText").innerText = msg;
+  document.getElementById("overlay").style.display = "block";
+  document.getElementById("customAlert").style.display = "flex";
+}
+function closeAlert() {
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("customAlert").style.display = "none";
+}
+
+// ==================== MENU ====================
+function showMenu(options) {
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
+  options.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.className = "menu-btn";
+    btn.style.borderColor = MAIN_COLOR;
+    btn.style.color = "#fff";
+    btn.style.background = "#222";
+    btn.innerText = opt.name;
+    btn.addEventListener("click", opt.action);
+    menu.appendChild(btn);
+  });
+}
+
+// ==================== SUBMENUS ====================
+function mainMenu() {
+  showMenu([
+    { name: "🎯 Auxílio de Mira", action: aimMenu },
+    { name: "🛡️ Estabilidade", action: stabilityMenu },
+    { name: "💎 Visual & Efeitos", action: visualsMenu },
+    { name: "⚙️ Sistema", action: systemMenu },
+    { name: "🎨 Personalizar Cores", action: colorMenu },
+    { name: "🚪 Logout", action: () => showAlert("Logout não implementado neste teste.") }
+  ]);
+}
+
+function aimMenu() {
+  showMenu([
+    { name: "Ativar Mira Assistida", action: () => showAlert("Mira assistida ativada!") },
+    { name: "Ajustar Recoil", action: () => showAlert("Recoil ajustado!") },
+    { name: "Voltar", action: mainMenu }
+  ]);
+}
+
+function stabilityMenu() {
+  showMenu([
+    { name: "Ativar AntiCrash", action: () => showAlert("AntiCrash ativado!") },
+    { name: "Voltar", action: mainMenu }
+  ]);
+}
+
+function visualsMenu() {
+  showMenu([
+    { name: "Modo Noturno", action: () => showAlert("Modo Noturno ativado!") },
+    { name: "Voltar", action: mainMenu }
+  ]);
+}
+
+function systemMenu() {
+  showMenu([
+    { name: "Informações", action: () => showAlert(`${APP_NAME}\nAutor: ${AUTHOR}`) },
+    { name: "Voltar", action: mainMenu }
+  ]);
+}
+
+function colorMenu() {
+  showMenu([
+    { name: "Azul", action: () => { MAIN_COLOR="#00BFFF"; mainMenu(); } },
+    { name: "Vermelho", action: () => { MAIN_COLOR="#FF3333"; mainMenu(); } },
+    { name: "Voltar", action: mainMenu }
+  ]);
+}
+
+// ==================== START ====================
+mainMenu();
+</script>
 </body>
 </html>

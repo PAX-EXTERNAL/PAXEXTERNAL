@@ -1,31 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PAXEXTERNAL FREE</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PAXEXTERNAL - Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+    #notice {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    #menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .menu-btn {
+      padding: 12px;
+      border: 2px solid #00BFFF;
+      border-radius: 10px;
+      background: #222;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    .menu-btn:hover {
+      background: #333;
+    }
+    /* ALERT CUSTOM */
+    #overlay {
+      display: none;
+      position: fixed;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 99;
+    }
+    #customAlert {
+      display: none;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      z-index: 100;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    #customAlert button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #00bcd4;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-<header>PAXEXTERNAL FREE</header>
+  <div id="notice"></div>
+  <div id="menu"></div>
 
-<section class="perfil">
-  <img src="images/avatar.png" alt="Avatar PAXEXTERNAL">
-  <h2>PAXEXTERNAL</h2>
-  <p>Versão Free</p>
-</section>
+  <!-- ALERT CUSTOM -->
+  <div id="overlay"></div>
+  <div id="customAlert">
+    <span id="alertText"></span>
+    <button onclick="closeAlert()">Fechar</button>
+  </div>
 
-<div id="notice"></div>
-<div class="menu" id="menu"></div>
-
-<script src="js/main.js"></script>
-<script>
-  // bloqueia acesso direto sem login
-  if (localStorage.getItem('loggedIn') !== 'true') {
-    window.location.href = 'login.html';
-  }
-</script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

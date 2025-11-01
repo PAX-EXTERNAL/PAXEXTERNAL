@@ -146,6 +146,3 @@ function colorMenu() {
         { name: "Voltar", action: mainMenu }
     ]);
 }
-
-// ---------------- START ----------------
-if (window.location.href.includes('index.html')) mainMenu();

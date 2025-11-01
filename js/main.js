@@ -92,52 +92,26 @@ function mainMenu() {
 function aimMenu() {
     showMenu([
         { name: "Ativar Mira Assistida", action: () => showAlert("Mira assistida ativada!") },
-        { name: "Ajustar Recoil", action: () => showAlert("Recoil ajustado!") },
-        { name: "Aimbot [PRO]", action: () => showAlert("Disponível apenas PRO.") },
-        { name: "Head Lock [PRO]", action: () => showAlert("Disponível apenas PRO.") },
+        { name: "Ajustar Recoil", action: () => showAlert("Recoil ajustado para controle melhor.") },
+        { name: "Aimbot [PRO]", action: () => showAlert("Essa função está disponível somente na versão PRO.") },
+        { name: "Head Lock [PRO]", action: () => showAlert("Essa função está disponível somente na versão PRO.") },
         { name: "Voltar", action: mainMenu }
     ]);
 }
 
 function stabilityMenu() {
     showMenu([
-        { name: "Ativar AntiCrash", action: () => showAlert("AntiCrash ativado!") },
-        { name: "Limpar Cache", action: () => showAlert("Cache limpo!") },
-        { name: "Otimizar Memória", action: () => showAlert("Memória otimizada!") },
+        { name: "Ativar AntiCrash", action: () => showAlert("AntiCrash ativado.") },
+        { name: "Limpar Cache", action: () => showAlert("Cache limpo com sucesso.") },
+        { name: "Otimizar Memória", action: () => showAlert("Memória otimizada.") },
         { name: "Voltar", action: mainMenu }
     ]);
 }
 
 function visualsMenu() {
     showMenu([
-        { name: "Ativar ESP [PRO]", action: () => showAlert("Disponível apenas PRO.") },
-        { name: "Modo Noturno", action: () => showAlert("Modo Noturno ativado!") },
-        { name: "Cores Neon", action: () => showAlert("Cores Neon ativadas!") },
-        { name: "Voltar", action: mainMenu }
-    ]);
-}
-
-function systemMenu() {
-    showMenu([
-        { name: "Informações", action: () => showAlert(`${APP_NAME}\nVersão: FREE 1.0.0\nAutor: ${AUTHOR}`) },
-        { name: "Atualizar", action: () => window.open("https://wa.me/5537998011856","_blank") },
-        { name: "Contato", action: () => window.open("https://t.me/BernardoPAX","_blank") },
-        { name: "Voltar", action: mainMenu }
-    ]);
-}
-
-function colorMenu() {
-    showMenu([
-        { name: "Azul", action: () => { MAIN_COLOR="#00BFFF"; mainMenu(); } },
-        { name: "Roxo", action: () => { MAIN_COLOR="#9D4EDD"; mainMenu(); } },
-        { name: "Verde", action: () => { MAIN_COLOR="#39FF14"; mainMenu(); } },
-        { name: "Vermelho", action: () => { MAIN_COLOR="#FF3333"; mainMenu(); } },
-        { name: "Amarelo", action: () => { MAIN_COLOR="#FFD700"; mainMenu(); } },
-        { name: "Custom RGB", action: () => {
-            let r = prompt("R (0-255)"), g = prompt("G (0-255)"), b = prompt("B (0-255)");
-            if (!isNaN(r) && !isNaN(g) && !isNaN(b)) MAIN_COLOR = `rgb(${r},${g},${b})`;
-            mainMenu();
-        }},
-        { name: "Voltar", action: mainMenu }
-    ]);
-}
+        { name: "Ativar ESP [PRO]", action: () => showAlert("ESP disponível somente na versão PRO.") },
+        { name: "Modo Noturno", action: () => showAlert("Modo noturno aplicado.") },
+        { name: "Cores Neon", action: () => showAlert("Cores neon habilitadas.") },
+        { name: "Voltar", action
+         

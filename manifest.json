@@ -1,0 +1,16 @@
+{
+  "name": "PAXEXTERNAL FREE",
+  "short_name": "PAXEXTERNAL",
+  "start_url": "login.html",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#00BFFF",
+  "description": "Menu interativo com funções FREE",
+  "icons": [
+    {
+      "src": "images/avatar.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

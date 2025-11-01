@@ -4,113 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PAXEXTERNAL FREE</title>
-  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    body {
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #111;
-      color: #00bfff;
-      padding: 20px;
-      font-size: 22px;
-      font-weight: bold;
-      text-shadow: 0 0 8px #00bfff;
-    }
-    .perfil {
-      margin-top: 40px;
-    }
-    .perfil img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 3px solid #00bfff;
-      box-shadow: 0 0 15px #00bfff;
-    }
-    .perfil h2 {
-      margin: 10px 0 5px;
-      color: #00bfff;
-    }
-    .perfil p {
-      color: #ccc;
-    }
-    .menu {
-      margin-top: 40px;
-    }
-    .menu button {
-      background: #00bfff;
-      border: none;
-      color: #000;
-      padding: 12px 24px;
-      border-radius: 8px;
-      margin: 10px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .menu button:hover {
-      background: #00ffff;
-    }
-  </style>
 </head>
 <body>
-
   <header>PAXEXTERNAL FREE</header>
 
-  <!-- Perfil -->
   <section class="perfil">
     <img src="images/avatar.png" alt="Avatar PAXEXTERNAL">
     <h2>PAXEXTERNAL</h2>
     <p>Versão Free</p>
   </section>
 
-  <!-- Menu -->
   <div class="menu" id="menu">
     <button onclick="showAlert('Função 1 ainda não disponível')">Função 1</button>
     <button onclick="showAlert('Função 2 ainda não disponível')">Função 2</button>
     <button onclick="logout()">Sair</button>
   </div>
 
-  <!-- Alerta -->
-  <div id="overlay" style="display:none;
-      position:fixed;top:0;left:0;width:100%;height:100%;
-      background:rgba(0,0,0,0.6);z-index:9;"></div>
-
-  <div id="customAlert" style="display:none;
-      position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-      background:#111;padding:20px;border-radius:10px;
-      border:2px solid #00bfff;z-index:10;width:80%;max-width:300px;">
-    <p id="alertText" style="margin-bottom:10px;"></p>
-    <button onclick="closeAlert()" 
-      style="padding:8px 16px;background:#00bfff;border:none;
-      color:#000;border-radius:6px;font-weight:bold;">OK</button>
+  <!-- Alertas -->
+  <div id="overlay" class="overlay"></div>
+  <div id="customAlert" class="alert-box">
+    <p id="alertText"></p>
+    <button onclick="closeAlert()">OK</button>
   </div>
 
+  <script src="js/main.js"></script>
   <script>
-    // Bloqueia acesso sem login
+    // Bloqueia acesso direto sem login
     if (localStorage.getItem('loggedIn') !== 'true') {
-      window.location.href = 'login.html';
-    }
-
-    // Funções simples de alerta
-    function showAlert(text) {
-      document.getElementById("alertText").textContent = text;
-      document.getElementById("overlay").style.display = "block";
-      document.getElementById("customAlert").style.display = "block";
-    }
-
-    function closeAlert() {
-      document.getElementById("overlay").style.display = "none";
-      document.getElementById("customAlert").style.display = "none";
-    }
-
-    function logout() {
-      localStorage.removeItem('loggedIn');
       window.location.href = 'login.html';
     }
   </script>

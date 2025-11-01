@@ -82,7 +82,6 @@ body {
 // ==================== CONFIG ====================
 const APP_NAME = "PAXEXTERNAL FREE";
 const AUTHOR = "Bernardo";
-const EXPIRATION_DAYS = 3;
 let MAIN_COLOR = "#00BFFF";
 
 // ==================== ALERTS ====================
@@ -162,7 +161,10 @@ function colorMenu() {
 }
 
 // ==================== START ====================
-mainMenu();
+// Espera o DOM carregar antes de criar menu
+document.addEventListener("DOMContentLoaded", () => {
+  mainMenu();
+});
 </script>
 </body>
 </html>
